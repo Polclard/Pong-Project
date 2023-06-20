@@ -13,7 +13,8 @@ namespace BallBounceProject
         public int Radius { get; set; }
         public Color Color { get; set; }
         public Direction MovingDirection { get; set; }
-        public int Speed { get; set; }
+        public int SpeedY { get; set; }
+        public int SpeedX { get; set; }
         public enum Direction
         {
             TopRight,
@@ -28,7 +29,8 @@ namespace BallBounceProject
             this.Radius = Radius;
             this.Color = color;
             this.MovingDirection = Direction;
-            Speed = 5;
+            SpeedX = 2;
+            SpeedY = 2;
         }
 
         public void Draw(Graphics g)
@@ -45,7 +47,7 @@ namespace BallBounceProject
             {
                 return true;
             }
-            if ((this.Coordinates.X > Player_2.Coordinates.X) &&
+            if ((this.Coordinates.X+Radius > Player_2.Coordinates.X) &&
                 ((this.Coordinates.Y > Player_2.Coordinates.Y) && (this.Coordinates.Y < Player_2.Coordinates.Y + Player.Height)))
             {
                 return true;
@@ -62,7 +64,7 @@ namespace BallBounceProject
                     Player_1.Points -= 10;
                     Player_2.Points += 10;
                     this.Coordinates = new Point(Form_Width/2, Form_Height/2);
-                    this.MovingDirection=Direction.BottomRight;
+                    this.MovingDirection = Direction.BottomRight;
                 }
                 if (this.Coordinates.Y > Form_Height - Radius * 4)
                 {
@@ -75,7 +77,7 @@ namespace BallBounceProject
             }
             else if (this.MovingDirection == Direction.BottomRight)
             {
-                if (this.Coordinates.X > Form_Width)
+                if (this.Coordinates.X > Form_Width+Radius)
                 {
                     Player_1.Points += 10;
                     Player_2.Points -= 10;
@@ -88,12 +90,12 @@ namespace BallBounceProject
                 }
                 if (CheckCollisionWithPlayer(Player_1, Player_2))
                 {
-                    this.MovingDirection = Direction.TopRight;
+                    this.MovingDirection = Direction.BottomLeft;
                 }
             }
             else if (this.MovingDirection == Direction.TopRight)
             {
-                if (this.Coordinates.X > Form_Width)
+                if (this.Coordinates.X > Form_Width+Radius)
                 {
                     Player_1.Points += 10;
                     Player_2.Points -= 10;
@@ -106,7 +108,7 @@ namespace BallBounceProject
                 }
                 if (CheckCollisionWithPlayer(Player_1, Player_2))
                 {
-                    this.MovingDirection = Direction.BottomRight;
+                    this.MovingDirection = Direction.TopLeft;
                 }
             }
             else if (this.MovingDirection == Direction.TopLeft)
@@ -133,22 +135,30 @@ namespace BallBounceProject
         {
             if(MovingDirection == Direction.TopLeft)
             {
-                Coordinates = new Point(Coordinates.X - Speed, Coordinates.Y - Speed);
+                SpeedX = -5;
+                SpeedY = -5;
+                Coordinates = new Point(Coordinates.X + SpeedX, Coordinates.Y + SpeedY);
                 ChangeDirection(Player_1,Player_2,Form_Width,Form_Height);
             }
             else if (MovingDirection == Direction.TopRight)
             {
-                Coordinates = new Point(Coordinates.X + Speed, Coordinates.Y - Speed);
+                SpeedX = 5;
+                SpeedY = -5;
+                Coordinates = new Point(Coordinates.X + SpeedX, Coordinates.Y + SpeedY);
                 ChangeDirection(Player_1, Player_2, Form_Width, Form_Height);
             }
             if (MovingDirection == Direction.BottomLeft)
             {
-                Coordinates = new Point(Coordinates.X - Speed, Coordinates.Y + Speed);
+                SpeedX = -5;
+                SpeedY = 5;
+                Coordinates = new Point(Coordinates.X + SpeedX, Coordinates.Y + SpeedY);
                 ChangeDirection(Player_1, Player_2, Form_Width, Form_Height);
             }
             if (MovingDirection == Direction.BottomRight)
             {
-                Coordinates = new Point(Coordinates.X + Speed, Coordinates.Y + Speed);
+                SpeedX = 5;
+                SpeedY = 5;
+                Coordinates = new Point(Coordinates.X + SpeedX, Coordinates.Y + SpeedY);
                 ChangeDirection(Player_1, Player_2, Form_Width, Form_Height);
             }
         }

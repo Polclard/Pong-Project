@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -40,9 +41,25 @@ namespace BallBounceProject
             this.Coordinates = new Point(Coordinates.X, Coordinates.Y + Speed);
         }
 
-        public void AIMovement(Ball MovingBall)
+        public void AIMovement(Ball MovingBall, int FormWidth, int FormHeight)
         {
-
+            if(Name == "AI")
+            {
+                if(MovingBall.MovingDirection == Ball.Direction.BottomRight ||
+                   MovingBall.MovingDirection == Ball.Direction.TopRight)
+                { 
+                    Point PointToHit = new Point(Coordinates.X, Coordinates.Y + Height / 2);
+                    int Y = MovingBall.Coordinates.Y;
+                    if (PointToHit.Y > Y)
+                    {
+                        MoveUp();
+                    }
+                    else if (PointToHit.Y < Y)
+                    {
+                        MoveDown();
+                    }
+                }
+            }
         }
     }
 }

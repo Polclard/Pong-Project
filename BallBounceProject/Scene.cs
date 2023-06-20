@@ -48,6 +48,7 @@ namespace BallBounceProject
         public void MoveBall()
         {
             MainBall.Move(Players[0], Players[1], formWidth, formHeight);
+            Players[1].AIMovement(MainBall, formWidth, formHeight);
         }
 
     }
