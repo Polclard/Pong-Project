@@ -9,6 +9,7 @@ namespace BallBounceProject
 {
     public class Ball
     {
+        //test
         public Point Coordinates { get; set; }
         public int Radius { get; set; }
         public Color Color { get; set; }
