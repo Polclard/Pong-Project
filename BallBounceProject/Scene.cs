@@ -56,9 +56,16 @@ namespace BallBounceProject
             return MainBall.CheckScored();
         }
 
-        public void NewRound()
-        {
-            MainBall  = new Ball(new Point(formWidth / 2, formHeight / 2), 20, Color.Red, Ball.Direction.BottomRight);
+        public void NewRound(int previousRoundWinner)
+        {   
+            if(previousRoundWinner == 1)
+            {
+                MainBall = new Ball(new Point(formWidth / 2, formHeight / 2), 20, Color.Red, Ball.Direction.BottomRight);
+            }
+            if (previousRoundWinner == 2)
+            {
+                MainBall = new Ball(new Point(formWidth / 2, formHeight / 2), 20, Color.Red, Ball.Direction.BottomLeft);
+            }
 
         }
 

@@ -44,13 +44,13 @@ namespace BallBounceProject
             {
                 Player1.Points += 1;
                 lblPlayer1Points.Text = Player1.Points.ToString();
-                scene.NewRound();
+                scene.NewRound(1);
             }
             if (ballStatus == 2)
             {
                 Player2.Points += 1;
                 lblPlayer2Points.Text = Player2.Points.ToString();
-                scene.NewRound();
+                scene.NewRound(2);
             }
 
             this.toolStripStatusLabel1.Text = $"Player 1: {scene.Players[0].Points} Player 2: {scene.Players[1].Points}";
