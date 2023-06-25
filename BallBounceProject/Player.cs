@@ -13,7 +13,7 @@ namespace BallBounceProject
         public int Points { get; set; }
         public Point Coordinates { get; set; }
         public static int Speed { get; set; } = 10;
-        public static int Width = 50;
+        public static int Width = 30;
         public static int Height = 100;
 
         public Player(Point Coordinates, string Name)

@@ -51,5 +51,16 @@ namespace BallBounceProject
             Players[1].AIMovement(MainBall, formWidth, formHeight);
         }
 
+        public int CheckBallStatus()
+        {
+            return MainBall.CheckScored();
+        }
+
+        public void NewRound()
+        {
+            MainBall  = new Ball(new Point(formWidth / 2, formHeight / 2), 20, Color.Red, Ball.Direction.BottomRight);
+
+        }
+
     }
 }

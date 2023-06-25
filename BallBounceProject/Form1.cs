@@ -7,12 +7,13 @@ namespace BallBounceProject
         Scene scene;
         Player Player1;
         Player Player2;
+        String Gamemode;
         public Form1(string Mode)
         {
             InitializeComponent();
             this.DoubleBuffered = true;
             scene = new Scene(this.Width, this.Height);
-            if(Mode == "PVP") // Player Vs Player
+            if (Mode == "PVP") // Player Vs Player
             {
                 Player1 = new Player(new Point(10, this.Height / 2 - 50), "Player1");
                 Player2 = new Player(new Point(this.Width - 75, this.Height / 2 - 50), "Player2");
@@ -25,6 +26,7 @@ namespace BallBounceProject
             scene.AddPlayers(Player1);
             scene.AddPlayers(Player2);
             timer1.Start();
+            Gamemode=Mode.ToString();
         }
 
         private void Form1_Paint(object sender, PaintEventArgs e)
@@ -36,6 +38,21 @@ namespace BallBounceProject
         private void timer1_Tick(object sender, EventArgs e)
         {
             scene.MoveBall();
+
+            int ballStatus = scene.CheckBallStatus();
+            if (ballStatus == 1)
+            {
+                Player1.Points += 1;
+                lblPlayer1Points.Text = Player1.Points.ToString();
+                scene.NewRound();
+            }
+            if (ballStatus == 2)
+            {
+                Player2.Points += 1;
+                lblPlayer2Points.Text = Player2.Points.ToString();
+                scene.NewRound();
+            }
+
             this.toolStripStatusLabel1.Text = $"Player 1: {scene.Players[0].Points} Player 2: {scene.Players[1].Points}";
             Invalidate();
         }
@@ -44,22 +61,21 @@ namespace BallBounceProject
         {
             if (e.KeyCode == Keys.W)
             {
-                foreach (Player player in scene.Players)
-                {
-                    if (player == Player1)
-                    {
-                        player.MoveUp();
-                    }
-                }
+                Player1.MoveUp();
             }
             else if (e.KeyCode == Keys.S)
             {
-                foreach (Player player in scene.Players)
+                Player1.MoveDown();
+            }
+            if (Gamemode == "PVP")
+            {
+                if (e.KeyCode == Keys.Up)
                 {
-                    if (player == Player1)
-                    {
-                        player.MoveDown();
-                    }
+                    Player2.MoveUp();
+                }
+                else if (e.KeyCode == Keys.Down)
+                {
+                    Player2.MoveDown();
                 }
             }
         }
@@ -82,7 +98,7 @@ namespace BallBounceProject
 
         private void Form1_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == 'W')
+            /*if (e.KeyChar == 'W')
             {
                 foreach (Player player in scene.Players)
                 {
@@ -101,7 +117,14 @@ namespace BallBounceProject
                         player.MoveDown();
                     }
                 }
-            }
+            }*/
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        
     }
 }

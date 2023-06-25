@@ -9,7 +9,7 @@ namespace BallBounceProject
 {
     public class Ball
     {
-        //test
+       
         public Point Coordinates { get; set; }
         public int Radius { get; set; }
         public Color Color { get; set; }
@@ -54,6 +54,14 @@ namespace BallBounceProject
                 return true;
             }
             return false;
+        } 
+        public int CheckScored()
+        {
+            if(this.Coordinates.X < 0) return 1;              
+            
+            if (this.Coordinates.X > 1000) return 2;
+            
+            return 0;
         }
 
         public void ChangeDirection(Player Player_1, Player Player_2, int Form_Width, int Form_Height)
@@ -62,8 +70,8 @@ namespace BallBounceProject
             {
                 if (this.Coordinates.X < -Radius*2)
                 {
-                    Player_1.Points -= 10;
-                    Player_2.Points += 10;
+                    //Player_1.Points -= 10;
+                    //Player_2.Points += 10;
                     this.Coordinates = new Point(Form_Width/2, Form_Height/2);
                     this.MovingDirection = Direction.BottomRight;
                 }
@@ -80,8 +88,8 @@ namespace BallBounceProject
             {
                 if (this.Coordinates.X > Form_Width+Radius)
                 {
-                    Player_1.Points += 10;
-                    Player_2.Points -= 10;
+                    //Player_1.Points += 10;
+                    //Player_2.Points -= 10;
                     this.Coordinates = new Point(Form_Width / 2, Form_Height / 2);
                     this.MovingDirection= Direction.BottomLeft;
                 }
@@ -98,8 +106,8 @@ namespace BallBounceProject
             {
                 if (this.Coordinates.X > Form_Width+Radius)
                 {
-                    Player_1.Points += 10;
-                    Player_2.Points -= 10;
+                    //Player_1.Points += 10;
+                    //Player_2.Points -= 10;
                     this.Coordinates = new Point(Form_Width/2, Form_Height/2);
                     this.MovingDirection = Direction.TopLeft;
                 }
@@ -116,8 +124,8 @@ namespace BallBounceProject
             {
                 if (this.Coordinates.X < -Radius*2)
                 {
-                    Player_1.Points -= 10;
-                    Player_2.Points += 10;
+                    //Player_1.Points -= 10;
+                    //Player_2.Points += 10;
                     this.Coordinates = new Point(Form_Width / 2, Form_Height / 2);
                     this.MovingDirection = Direction.TopRight;
                 }
