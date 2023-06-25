@@ -67,6 +67,7 @@
             Click += Form1_Click;
             Paint += Form1_Paint;
             KeyDown += Form1_KeyDown;
+            KeyPress += Form1_KeyPress;
             MouseClick += Form1_MouseClick;
             statusStrip1.ResumeLayout(false);
             statusStrip1.PerformLayout();

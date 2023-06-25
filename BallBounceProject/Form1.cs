@@ -54,7 +54,6 @@ namespace BallBounceProject
                     }
                 }
             }
-            Invalidate();
         }
 
         private void Form1_Click(object sender, EventArgs e)
@@ -71,6 +70,30 @@ namespace BallBounceProject
         {
             scene.formWidth = this.Width;
             scene.formHeight = this.Height;
+        }
+
+        private void Form1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 'W')
+            {
+                foreach (Player player in scene.Players)
+                {
+                    if (player == Player1)
+                    {
+                        player.MoveUp();
+                    }
+                }
+            }
+            else if (e.KeyChar == 'S')
+            {
+                foreach (Player player in scene.Players)
+                {
+                    if (player == Player1)
+                    {
+                        player.MoveDown();
+                    }
+                }
+            }
         }
     }
 }
