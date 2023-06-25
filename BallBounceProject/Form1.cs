@@ -7,13 +7,21 @@ namespace BallBounceProject
         Scene scene;
         Player Player1;
         Player Player2;
-        public Form1()
+        public Form1(string Mode)
         {
             InitializeComponent();
             this.DoubleBuffered = true;
             scene = new Scene(this.Width, this.Height);
-            Player1 = new Player(new Point(10, this.Height / 2 - 50), "Player1");
-            Player2 = new Player(new Point(this.Width - 75, this.Height / 2 - 50), "AI");
+            if(Mode == "PVP") // Player Vs Player
+            {
+                Player1 = new Player(new Point(10, this.Height / 2 - 50), "Player1");
+                Player2 = new Player(new Point(this.Width - 75, this.Height / 2 - 50), "Player2");
+            }
+            else if (Mode == "PVC") // Player Vs Computer
+            {
+                Player1 = new Player(new Point(10, this.Height / 2 - 50), "Player1");
+                Player2 = new Player(new Point(this.Width - 75, this.Height / 2 - 50), "AI");
+            }
             scene.AddPlayers(Player1);
             scene.AddPlayers(Player2);
             timer1.Start();

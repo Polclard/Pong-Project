@@ -42,5 +42,11 @@ namespace BallBounceProject
         {
             Application.Exit();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Form1 form1 = new Form1("PVC");
+            form1.ShowDialog();
+        }
     }
 }
