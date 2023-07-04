@@ -12,15 +12,17 @@ namespace BallBounceProject
         public string Name { get; set; }
         public int Points { get; set; }
         public Point Coordinates { get; set; }
+        public int fieldHeight { get; set; }
         public static int Speed { get; set; } = 10;
         public static int Width = 30;
-        public static int Height = 100;
+        public static int Height = 120;
 
-        public Player(Point Coordinates, string Name)
+        public Player(Point Coordinates, string Name, int fieldHeight)
         {
             this.Points = 0;
             this.Coordinates = Coordinates;
             this.Name = Name;
+            this.fieldHeight = fieldHeight;
         }
 
 
@@ -32,13 +34,19 @@ namespace BallBounceProject
         }
 
         public void MoveUp()
-        { 
-            this.Coordinates = new Point(Coordinates.X, Coordinates.Y - Speed);
+        {   
+            if(this.Coordinates.Y > 0)
+            {
+                this.Coordinates = new Point(Coordinates.X, Coordinates.Y - Speed);
+            }
+            
         }
 
         public void MoveDown()
-        {
-            this.Coordinates = new Point(Coordinates.X, Coordinates.Y + Speed);
+        {   
+            if(this.Coordinates.Y < fieldHeight-Height) { 
+                this.Coordinates = new Point(Coordinates.X, Coordinates.Y + Speed);
+            }
         }
 
         public void AIMovement(Ball MovingBall, int FormWidth, int FormHeight)

@@ -18,16 +18,7 @@ namespace BallBounceProject
             this.formWidth = formWidth;
             this.formHeight = formHeight;
             Players = new List<Player>();
-            Random randomDirection = new Random();
-            int directionIndex = randomDirection.Next(0, 3);
-            if(directionIndex == 0)
-                MainBall = new Ball(new Point(formWidth / 2, formHeight / 2), 20, Color.Red, Ball.Direction.TopLeft);
-            else if(directionIndex == 1)
-                MainBall = new Ball(new Point(formWidth / 2, formHeight / 2), 20, Color.Red, Ball.Direction.TopRight);
-            else if (directionIndex == 2)
-                MainBall = new Ball(new Point(formWidth / 2, formHeight / 2), 20, Color.Red, Ball.Direction.BottomLeft);
-            else if (directionIndex == 3)
-                MainBall = new Ball(new Point(formWidth / 2, formHeight / 2), 20, Color.Red, Ball.Direction.BottomRight);
+            MainBall = new Ball(new Point(formWidth / 2, formHeight / 2), 20, Color.Red, Ball.Direction.Random);
 
         }
 
@@ -58,13 +49,15 @@ namespace BallBounceProject
 
         public void NewRound(int previousRoundWinner)
         {   
-            if(previousRoundWinner == 1)
+            Random random = new Random();
+            int ballDirection = random.Next(0, 2);
+            if (previousRoundWinner == 1)
             {
-                MainBall = new Ball(new Point(formWidth / 2, formHeight / 2), 20, Color.Red, Ball.Direction.BottomRight);
+                MainBall = new Ball(new Point(formWidth / 2, formHeight / 2), 20, Color.Red, ballDirection==0?Ball.Direction.BottomRight:Ball.Direction.TopRight);
             }
             if (previousRoundWinner == 2)
             {
-                MainBall = new Ball(new Point(formWidth / 2, formHeight / 2), 20, Color.Red, Ball.Direction.BottomLeft);
+                MainBall = new Ball(new Point(formWidth / 2, formHeight / 2), 20, Color.Red, ballDirection==0?Ball.Direction.BottomLeft:Ball.Direction.TopLeft);
             }
 
         }
