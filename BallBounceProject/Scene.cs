@@ -18,7 +18,7 @@ namespace BallBounceProject
             this.formWidth = formWidth;
             this.formHeight = formHeight;
             Players = new List<Player>();
-            MainBall = new Ball(new Point(formWidth / 2, formHeight / 2), 20, Color.Red, Ball.Direction.Random);
+            MainBall = new Ball(new Point(formWidth / 2, formHeight / 2), 20, Color.Red, "random");
 
         }
 
@@ -49,18 +49,14 @@ namespace BallBounceProject
 
         public void NewRound(int previousRoundWinner)
         {   
-            Random random = new Random();
-            int ballDirection = random.Next(0, 2);
             if (previousRoundWinner == 1)
             {
-                MainBall = new Ball(new Point(formWidth / 2, formHeight / 2), 20, Color.Red, ballDirection==0?Ball.Direction.BottomRight:Ball.Direction.TopRight);
+                MainBall = new Ball(new Point(formWidth / 2, formHeight / 2), 20, Color.Red, "right");
             }
             if (previousRoundWinner == 2)
             {
-                MainBall = new Ball(new Point(formWidth / 2, formHeight / 2), 20, Color.Red, ballDirection==0?Ball.Direction.BottomLeft:Ball.Direction.TopLeft);
+                MainBall = new Ball(new Point(formWidth / 2, formHeight / 2), 20, Color.Red, "left");
             }
-
         }
-
     }
 }

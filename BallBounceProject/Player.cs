@@ -51,13 +51,12 @@ namespace BallBounceProject
 
         public void AIMovement(Ball MovingBall, int FormWidth, int FormHeight)
         {
-            if(Name == "AI")
+           if(Name == "AI")
             {
-                if(MovingBall.MovingDirection == Ball.Direction.BottomRight ||
-                   MovingBall.MovingDirection == Ball.Direction.TopRight)
+                if(MovingBall.SpeedX > 0)
                 { 
                     Point PointToHit = new Point(Coordinates.X, Coordinates.Y + Height / 2);
-                    int Y = MovingBall.Coordinates.Y;
+                    int Y = MovingBall.CenterCoordinates.Y;
                     if (PointToHit.Y > Y)
                     {
                         MoveUp();
