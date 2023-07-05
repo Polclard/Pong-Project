@@ -25,7 +25,7 @@ namespace BallBounceProject
 
 
             Random random = new Random();
-            SpeedY = 5 * (random.Next(0, 1) * 2 - 1);
+            SpeedY = 5 * (random.Next(0, 2) * 2 - 1);
             
             if(Direction == "right"){
                 SpeedX = 5;
@@ -36,11 +36,9 @@ namespace BallBounceProject
             }
             else
             {
-                SpeedX = 5 * (random.Next(0, 1) * 2 - 1);
+                SpeedX = 5 * (random.Next(0, 2) * 2 - 1);
             }
-            
 
-            
         }
 
         public void Draw(Graphics g)
@@ -50,21 +48,21 @@ namespace BallBounceProject
             b.Dispose();
         }
 
-        public bool CheckCollisionWithPlayer(Player Player_1, Player Player_2)
+        public int CheckCollisionWithPlayer(Player Player_1, Player Player_2)
         {
             if((this.CenterCoordinates.X-Radius < Player_1.Coordinates.X + Player.Width) 
-                && ((this.CenterCoordinates.Y > Player_1.Coordinates.Y) 
-                    && (this.CenterCoordinates.Y < Player_1.Coordinates.Y + Player.Height)))
+                && ((this.CenterCoordinates.Y + Radius > Player_1.Coordinates.Y) 
+                    && (this.CenterCoordinates.Y - Radius < Player_1.Coordinates.Y + Player.Height)))
             {
-                return true;
+                return 1;
             }
             if ((this.CenterCoordinates.X+Radius > Player_2.Coordinates.X)
-                && ((this.CenterCoordinates.Y > Player_2.Coordinates.Y) 
-                    && (this.CenterCoordinates.Y < Player_2.Coordinates.Y + Player.Height)))
+                && ((this.CenterCoordinates.Y + Radius > Player_2.Coordinates.Y) 
+                    && (this.CenterCoordinates.Y - Radius < Player_2.Coordinates.Y + Player.Height)))
             {
-                return true;
+                return 2;
             }
-            return false;
+            return 0;
         } 
         public int CheckScored()
         {
@@ -75,7 +73,7 @@ namespace BallBounceProject
             return 0;
         }
 
-        public void checkCollision(Player Player_1, Player Player_2, int Form_Width, int Form_Height)
+        public void CheckCollision(Player Player_1, Player Player_2, int Form_Width, int Form_Height)
         {
             //collision with top or bottom wall
             if (this.CenterCoordinates.Y <= 0 || this.CenterCoordinates.Y > Form_Height - Radius)
@@ -84,10 +82,32 @@ namespace BallBounceProject
             }
 
             //collision with player paddles
-            if (CheckCollisionWithPlayer(Player_1, Player_2))
+            int PlayerCollided = CheckCollisionWithPlayer(Player_1, Player_2);
+            if (PlayerCollided > 0)
             {
-                SpeedX *= -1;
-                _ = SpeedX > 0 ? SpeedX++ : SpeedX--;
+                //change speedY depending on area of paddle hit
+                int TotalSpeed = Math.Abs(SpeedX) + Math.Abs(SpeedY);
+                TotalSpeed++;
+
+                //get what player was in contact with the ball
+                int PlayerY = Player_1.Coordinates.Y;
+                if(PlayerCollided == 2) PlayerY = Player_2.Coordinates.Y;
+
+                //get position of ball relative to the hit player
+                int relativeY = this.CenterCoordinates.Y - PlayerY;
+                
+                //calculate the speed vectors 
+                double Yweight = Math.Abs(relativeY - 60) / 60.0;
+                SpeedY = (int) (TotalSpeed * Yweight * 0.7);
+                SpeedX = TotalSpeed - SpeedY;
+
+                
+                //correct direction
+                if(PlayerCollided == 2 ) SpeedX *= -1;
+                
+                if (relativeY < 60) SpeedY *= -1;
+
+               
             }
            
             
@@ -96,7 +116,7 @@ namespace BallBounceProject
         public void Move(Player Player_1, Player Player_2, int Form_Width, int Form_Height)
         {
             CenterCoordinates = new Point(CenterCoordinates.X + SpeedX, CenterCoordinates.Y + SpeedY);
-            checkCollision(Player_1, Player_2, Form_Width, Form_Height);
+            CheckCollision(Player_1, Player_2, Form_Width, Form_Height);
         }
     }
 }
