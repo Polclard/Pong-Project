@@ -32,6 +32,7 @@
             timer1 = new System.Windows.Forms.Timer(components);
             lblPlayer1Points = new Label();
             lblPlayer2Points = new Label();
+            lblPauseInfo = new Label();
             SuspendLayout();
             // 
             // timer1
@@ -59,11 +60,23 @@
             lblPlayer2Points.TabIndex = 2;
             lblPlayer2Points.Text = "0";
             // 
+            // lblPauseInfo
+            // 
+            lblPauseInfo.AutoSize = true;
+            lblPauseInfo.Font = new Font("Agency FB", 35.2F, FontStyle.Regular, GraphicsUnit.Point);
+            lblPauseInfo.Location = new Point(307, 440);
+            lblPauseInfo.Name = "lblPauseInfo";
+            lblPauseInfo.Size = new Size(436, 72);
+            lblPauseInfo.TabIndex = 3;
+            lblPauseInfo.Text = "Press SPACE to start.";
+            lblPauseInfo.Visible = false;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1032, 633);
+            Controls.Add(lblPauseInfo);
             Controls.Add(lblPlayer2Points);
             Controls.Add(lblPlayer1Points);
             FormBorderStyle = FormBorderStyle.None;
@@ -91,5 +104,6 @@
         private System.Windows.Forms.Timer timer1;
         private Label lblPlayer1Points;
         private Label lblPlayer2Points;
+        private Label lblPauseInfo;
     }
 }

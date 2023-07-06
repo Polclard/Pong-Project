@@ -25,7 +25,7 @@ namespace BallBounceProject
                 Player1 = new Player(new Point(10, this.Height / 2 - 50), "Player1", this.Height);
                 Player2 = new Player(new Point(this.Width - 40, this.Height / 2 - 120), "Player2", this.Height);
             }
-            else if (Mode == "PVC") // Player Vs Computer
+            else // Player Vs Computer
             {
                 Player1 = new Player(new Point(10, this.Height / 2 - 50), "Player1", this.Height);
                 Player2 = new Player(new Point(this.Width - 40, this.Height / 2 - 120), "AI", this.Height);
@@ -48,23 +48,62 @@ namespace BallBounceProject
         {
             //pause
             if (Pause) return;
-            
+
             //ball movement
             scene.MoveBall();
 
+
+            //scoring
             int ballStatus = scene.CheckBallStatus();
             if (ballStatus == 1)
             {
                 Player1.Points += 1;
                 lblPlayer1Points.Text = Player1.Points.ToString();
                 scene.NewRound(1);
+                if (Player1.Points > 10)
+                {
+                    Pause = true;
+                    if (MessageBox.Show("Player 1 won! Play Again?", "Congratulations!", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        Player1.Points = 0;
+                        Player2.Points = 0;
+                        lblPlayer1Points.Text = "0";
+                        lblPlayer2Points.Text = "0";
+                        scene = new Scene(this.Width, this.Height);
+                        scene.AddPlayers(Player1);
+                        scene.AddPlayers(Player2);
+                    }
+                    else
+                    {
+                        this.Close();
+                    }
+                }
             }
             if (ballStatus == 2)
             {
                 Player2.Points += 1;
                 lblPlayer2Points.Text = Player2.Points.ToString();
                 scene.NewRound(2);
+                if (Player2.Points > 10)
+                {
+                    Pause = true;
+                    if (MessageBox.Show("Player 2 won! Play Again?", "Congratulations!", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        Player1.Points = 0;
+                        Player2.Points = 0;
+                        lblPlayer1Points.Text = "0";
+                        lblPlayer2Points.Text = "0";
+                        scene = new Scene(this.Width, this.Height);
+                        scene.AddPlayers(Player1);
+                        scene.AddPlayers(Player2);
+                    }
+                    else
+                    {
+                        this.Close();
+                    }
+                }
             }
+
 
             //player movement
             if (keyWisDown)
@@ -95,6 +134,7 @@ namespace BallBounceProject
             if (e.KeyCode == Keys.Space)
             {
                 Pause = !Pause;
+                lblPauseInfo.Visible = Pause;
             }
 
 
@@ -169,26 +209,7 @@ namespace BallBounceProject
 
         private void Form1_KeyPress(object sender, KeyPressEventArgs e)
         {
-            /*if (e.KeyChar == 'W')
-            {
-                foreach (Player player in scene.Players)
-                {
-                    if (player == Player1)
-                    {
-                        player.MoveUp();
-                    }
-                }
-            }
-            else if (e.KeyChar == 'S')
-            {
-                foreach (Player player in scene.Players)
-                {
-                    if (player == Player1)
-                    {
-                        player.MoveDown();
-                    }
-                }
-            }*/
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
