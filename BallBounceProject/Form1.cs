@@ -14,7 +14,7 @@ namespace BallBounceProject
         bool keyUpIsDown = false;
         bool keyDownIsDown = false;
 
-        bool Pause = false;
+        bool Pause = true;
         public Form1(string Mode)
         {
             InitializeComponent();
@@ -29,6 +29,9 @@ namespace BallBounceProject
             {
                 Player1 = new Player(new Point(10, this.Height / 2 - 50), "Player1", this.Height);
                 Player2 = new Player(new Point(this.Width - 40, this.Height / 2 - 120), "AI", this.Height);
+
+                showTutorial("hide");
+                showTutorial("PvC");
             }
             scene.AddPlayers(Player1);
             scene.AddPlayers(Player2);
@@ -72,6 +75,7 @@ namespace BallBounceProject
                         scene = new Scene(this.Width, this.Height);
                         scene.AddPlayers(Player1);
                         scene.AddPlayers(Player2);
+                        lblPauseInfo.Visible = true;
                     }
                     else
                     {
@@ -96,6 +100,7 @@ namespace BallBounceProject
                         scene = new Scene(this.Width, this.Height);
                         scene.AddPlayers(Player1);
                         scene.AddPlayers(Player2);
+                        lblPauseInfo.Visible = true;
                     }
                     else
                     {
@@ -135,6 +140,7 @@ namespace BallBounceProject
             {
                 Pause = !Pause;
                 lblPauseInfo.Visible = Pause;
+                showTutorial("hide");
             }
 
 
@@ -165,6 +171,8 @@ namespace BallBounceProject
 
         private void Form1_KeyUp(object sender, KeyEventArgs e)
         {
+
+
             if (e.KeyCode == Keys.Escape) this.Close();
 
 
@@ -242,6 +250,54 @@ namespace BallBounceProject
         private void Form1_MouseUp(object sender, MouseEventArgs e)
         {
             mouseDown = false;
+        }
+
+        private void showTutorial(string what)
+        {
+            if (what == "hide")
+            {
+                tutBtnWkey.Visible = false;
+                tutBtnAkey.Visible = false;
+                tutBtnSkey.Visible = false;
+                tutBtnDkey.Visible = false;
+
+                tutBtnUpArrow.Visible = false;
+                tutBtnDownArrow.Visible = false;
+                tutBtnLeftArrow.Visible = false;
+                tutBtnRightArrow.Visible = false;
+
+                tutLblHeading.Visible = false;
+                tutLblMoreInstructions.Visible = false;
+                tutLblPlayer1.Visible = false;
+                tutLblPlayer2.Visible = false;
+                tutLblPlayer1Instructions.Visible = false;
+                tutLblP2Instructions.Visible = false;
+            }
+            else
+            {
+                if (what == "PvP")
+                {
+                    tutBtnUpArrow.Visible = true;
+                    tutBtnDownArrow.Visible = true;
+                    tutBtnLeftArrow.Visible = true;
+                    tutBtnRightArrow.Visible = true;
+
+                    tutLblPlayer2.Visible = true;
+                    tutLblP2Instructions.Visible = true;
+                }
+
+                tutBtnWkey.Visible = true;
+                tutBtnAkey.Visible = true;
+                tutBtnSkey.Visible = true;
+                tutBtnDkey.Visible = true;
+
+                tutLblHeading.Visible = true;
+                tutLblMoreInstructions.Visible = true;
+
+                tutLblPlayer1.Visible = true;
+                tutLblPlayer1Instructions.Visible = true;
+
+            }
         }
     }
 
