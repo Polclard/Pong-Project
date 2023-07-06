@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Numerics;
 using System.Text;
@@ -51,12 +52,30 @@ namespace BallBounceProject
 
         public void AIMovement(Ball MovingBall, int FormWidth, int FormHeight)
         {
-           if(Name == "AI")
+            if(Name != "Player1" && Name !="Player2")
             {
-                if(MovingBall.SpeedX > 0)
+                int XThreshold = 0;
+
+                if(Name == "Easy")  XThreshold = FormWidth - (FormWidth / 3);
+                
+                if(MovingBall.SpeedX > 0 && MovingBall.CenterCoordinates.X > XThreshold)
                 { 
                     Point PointToHit = new Point(Coordinates.X, Coordinates.Y + Height / 2);
                     int Y = MovingBall.CenterCoordinates.Y;
+                    if (PointToHit.Y > Y && Math.Abs(PointToHit.Y - Y) > 10)
+                    {
+                        MoveUp();
+                    }
+                    else if (PointToHit.Y < Y && Math.Abs(PointToHit.Y - Y) > 10)
+                    {
+                        MoveDown();
+                    }
+                }
+
+                if(Name == "Hard" && MovingBall.SpeedX < 0)
+                {
+                    Point PointToHit = new Point(Coordinates.X, Coordinates.Y + Height / 2);
+                    int Y = FormHeight/2;
                     if (PointToHit.Y > Y)
                     {
                         MoveUp();

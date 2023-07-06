@@ -22,13 +22,13 @@ namespace BallBounceProject
             scene = new Scene(this.Width, this.Height);
             if (Mode == "PVP") // Player Vs Player
             {
-                Player1 = new Player(new Point(10, this.Height / 2 - 50), "Player1", this.Height);
+                Player1 = new Player(new Point(10, this.Height / 2 - 120), "Player1", this.Height);
                 Player2 = new Player(new Point(this.Width - 40, this.Height / 2 - 120), "Player2", this.Height);
             }
             else // Player Vs Computer
             {
-                Player1 = new Player(new Point(10, this.Height / 2 - 50), "Player1", this.Height);
-                Player2 = new Player(new Point(this.Width - 40, this.Height / 2 - 120), "AI", this.Height);
+                Player1 = new Player(new Point(10, this.Height / 2 - 120), "Player1", this.Height);
+                Player2 = new Player(new Point(this.Width - 40, this.Height / 2 - 120), Mode, this.Height);
 
                 showTutorial("hide");
                 showTutorial("PvC");

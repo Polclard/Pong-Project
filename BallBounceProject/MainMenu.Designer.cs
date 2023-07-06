@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             btnPVP = new Button();
-            button2 = new Button();
-            button3 = new Button();
+            btnPvC = new Button();
+            btnExit = new Button();
             label1 = new Label();
-            button4 = new Button();
+            btnOptions = new Button();
             SuspendLayout();
             // 
             // btnPVP
@@ -46,27 +46,27 @@
             btnPVP.UseVisualStyleBackColor = true;
             btnPVP.Click += btnPVP_Click;
             // 
-            // button2
+            // btnPvC
             // 
-            button2.Location = new Point(323, 327);
-            button2.Margin = new Padding(3, 4, 3, 4);
-            button2.Name = "button2";
-            button2.Size = new Size(250, 72);
-            button2.TabIndex = 1;
-            button2.Text = "Player Vs Computer";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
+            btnPvC.Location = new Point(323, 327);
+            btnPvC.Margin = new Padding(3, 4, 3, 4);
+            btnPvC.Name = "btnPvC";
+            btnPvC.Size = new Size(250, 72);
+            btnPvC.TabIndex = 1;
+            btnPvC.Text = "Player Vs Computer";
+            btnPvC.UseVisualStyleBackColor = true;
+            btnPvC.Click += btnPvC_Click;
             // 
-            // button3
+            // btnExit
             // 
-            button3.Location = new Point(323, 487);
-            button3.Margin = new Padding(3, 4, 3, 4);
-            button3.Name = "button3";
-            button3.Size = new Size(250, 72);
-            button3.TabIndex = 2;
-            button3.Text = "Exit";
-            button3.UseVisualStyleBackColor = true;
-            button3.Click += button3_Click;
+            btnExit.Location = new Point(323, 487);
+            btnExit.Margin = new Padding(3, 4, 3, 4);
+            btnExit.Name = "btnExit";
+            btnExit.Size = new Size(250, 72);
+            btnExit.TabIndex = 2;
+            btnExit.Text = "Exit";
+            btnExit.UseVisualStyleBackColor = true;
+            btnExit.Click += button3_Click;
             // 
             // label1
             // 
@@ -80,26 +80,26 @@
             label1.Text = "Pong";
             label1.Click += label1_Click;
             // 
-            // button4
+            // btnOptions
             // 
-            button4.Location = new Point(323, 407);
-            button4.Margin = new Padding(3, 4, 3, 4);
-            button4.Name = "button4";
-            button4.Size = new Size(250, 72);
-            button4.TabIndex = 4;
-            button4.Text = "Options";
-            button4.UseVisualStyleBackColor = true;
-            button4.Click += button4_Click;
+            btnOptions.Location = new Point(323, 407);
+            btnOptions.Margin = new Padding(3, 4, 3, 4);
+            btnOptions.Name = "btnOptions";
+            btnOptions.Size = new Size(250, 72);
+            btnOptions.TabIndex = 4;
+            btnOptions.Text = "Options";
+            btnOptions.UseVisualStyleBackColor = true;
+            btnOptions.Click += button4_Click;
             // 
             // MainMenu
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(919, 633);
-            Controls.Add(button4);
+            Controls.Add(btnOptions);
             Controls.Add(label1);
-            Controls.Add(button3);
-            Controls.Add(button2);
+            Controls.Add(btnExit);
+            Controls.Add(btnPvC);
             Controls.Add(btnPVP);
             Margin = new Padding(3, 4, 3, 4);
             Name = "MainMenu";
@@ -111,9 +111,9 @@
         #endregion
 
         private Button btnPVP;
-        private Button button2;
-        private Button button3;
+        private Button btnPvC;
+        private Button btnExit;
         private Label label1;
-        private Button button4;
+        private Button btnOptions;
     }
 }

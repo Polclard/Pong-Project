@@ -66,7 +66,7 @@ namespace BallBounceProject
         } 
         public int CheckScored()
         {
-            if(this.CenterCoordinates.X > 1000) return 1;              
+            if (this.CenterCoordinates.X > 1000) return 1;              
             
             if (this.CenterCoordinates.X < 0) return 2;
             
