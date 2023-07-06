@@ -31,8 +31,9 @@
             btnPVP = new Button();
             btnPvC = new Button();
             btnExit = new Button();
-            label1 = new Label();
             btnOptions = new Button();
+            pictureBox1 = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // btnPVP
@@ -68,18 +69,6 @@
             btnExit.UseVisualStyleBackColor = true;
             btnExit.Click += button3_Click;
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(392, 87);
-            label1.MaximumSize = new Size(571, 667);
-            label1.Name = "label1";
-            label1.Size = new Size(114, 54);
-            label1.TabIndex = 3;
-            label1.Text = "Pong";
-            label1.Click += label1_Click;
-            // 
             // btnOptions
             // 
             btnOptions.Location = new Point(323, 407);
@@ -91,21 +80,31 @@
             btnOptions.UseVisualStyleBackColor = true;
             btnOptions.Click += button4_Click;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.Pong_Logo1;
+            pictureBox1.Location = new Point(323, 45);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(250, 161);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 5;
+            pictureBox1.TabStop = false;
+            // 
             // MainMenu
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(919, 633);
+            Controls.Add(pictureBox1);
             Controls.Add(btnOptions);
-            Controls.Add(label1);
             Controls.Add(btnExit);
             Controls.Add(btnPvC);
             Controls.Add(btnPVP);
             Margin = new Padding(3, 4, 3, 4);
             Name = "MainMenu";
             Text = "MainMenu";
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -113,7 +112,7 @@
         private Button btnPVP;
         private Button btnPvC;
         private Button btnExit;
-        private Label label1;
         private Button btnOptions;
+        private PictureBox pictureBox1;
     }
 }

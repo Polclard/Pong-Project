@@ -75,8 +75,14 @@ namespace BallBounceProject
 
         public void CheckCollision(Player Player_1, Player Player_2, int Form_Width, int Form_Height)
         {
-            //collision with top or bottom wall
-            if (this.CenterCoordinates.Y <= 0 || this.CenterCoordinates.Y > Form_Height - Radius)
+            //collision with top wall
+            if (this.CenterCoordinates.Y <= 0 && SpeedY < 0)
+            {
+                SpeedY *= -1;
+            }
+
+            //collision with bottom wall
+            if (this.CenterCoordinates.Y > Form_Height - Radius && SpeedY > 0)
             {
                 SpeedY *= -1;
             }
