@@ -12,28 +12,30 @@ namespace BallBounceProject
 {
     public partial class ChooseDifficulty : Form
     {
-        public ChooseDifficulty()
+        public bool AllowPowerups { get; set; }
+        public ChooseDifficulty(bool allowPowerups)
         {
             InitializeComponent();
+            AllowPowerups = allowPowerups;
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Form1 form1 = new Form1("Easy");
+            Form1 form1 = new Form1("Easy", AllowPowerups);
             form1.ShowDialog();
             this.Close();
         }
 
         private void btnMedium_Click(object sender, EventArgs e)
         {
-            Form1 form1 = new Form1("Medium");
+            Form1 form1 = new Form1("Medium", AllowPowerups);
             form1.ShowDialog();
             this.Close();
         }
 
         private void btnHard_Click(object sender, EventArgs e)
         {
-            Form1 form1 = new Form1("Hard");
+            Form1 form1 = new Form1("Hard", AllowPowerups);
             form1.ShowDialog();
             this.Close();
         }

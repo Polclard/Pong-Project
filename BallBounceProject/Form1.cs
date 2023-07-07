@@ -15,7 +15,10 @@ namespace BallBounceProject
         bool keyDownIsDown = false;
 
         bool Pause = true;
-        public Form1(string Mode)
+        public bool AllowPowerups { get; set; }
+
+        int ticks = 0;
+        public Form1(string Mode, bool AllowPowerups)
         {
             InitializeComponent();
             this.DoubleBuffered = true;
@@ -37,6 +40,7 @@ namespace BallBounceProject
             scene.AddPlayers(Player2);
             timer1.Start();
             Gamemode = Mode.ToString();
+            this.AllowPowerups = AllowPowerups;
         }
 
 
@@ -44,7 +48,6 @@ namespace BallBounceProject
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
             scene.Draw(e.Graphics);
-
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -130,6 +133,32 @@ namespace BallBounceProject
                     Player2.MoveDown();
                 }
             }
+
+            //Powerups
+            if (AllowPowerups)
+            {
+                if (scene.Powerup == null ) // powerup added every 2500 ticks
+                {
+                    scene.CreatePowerup();
+                    ticks = 700; // 700 ticks for powerup
+                }
+
+
+                if (scene.Powerup != null)
+                {
+                    if (scene.Powerup.Active)
+                    {
+                        ticks--;
+                    }
+                    if (ticks == 0)
+                    {
+                        scene.Powerup.Deactivate(scene.Players[0], scene.Players[1]);
+                        scene.Powerup = null;
+                    }
+
+                }
+            }
+
 
             Invalidate();
         }

@@ -12,9 +12,26 @@ namespace BallBounceProject
 {
     public partial class Options : Form
     {
-        public Options()
+        MainMenu MenuRef;
+        public Options(MainMenu menuRef)
         {
             InitializeComponent();
+            MenuRef = menuRef;
+        }
+
+        private void Options_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cBoxPowerups_CheckedChanged(object sender, EventArgs e)
+        {
+            MenuRef.AllowPowerups = cBoxPowerups.Checked;
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

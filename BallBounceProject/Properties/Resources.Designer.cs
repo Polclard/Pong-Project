@@ -63,9 +63,9 @@ namespace BallBounceProject.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Pong_Logo {
+        internal static System.Drawing.Bitmap Enlarge_Powerup {
             get {
-                object obj = ResourceManager.GetObject("Pong-Logo", resourceCulture);
+                object obj = ResourceManager.GetObject("Enlarge_Powerup", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -76,6 +76,16 @@ namespace BallBounceProject.Properties {
         internal static System.Drawing.Bitmap Pong_Logo1 {
             get {
                 object obj = ResourceManager.GetObject("Pong-Logo1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Shrink_Powerup {
+            get {
+                object obj = ResourceManager.GetObject("Shrink_Powerup", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -16,7 +16,7 @@ namespace BallBounceProject
         public int fieldHeight { get; set; }
         public static int Speed { get; set; } = 10;
         public static int Width = 30;
-        public static int Height = 120;
+        public int Height { get; set; }
 
         public Player(Point Coordinates, string Name, int fieldHeight)
         {
@@ -24,6 +24,7 @@ namespace BallBounceProject
             this.Coordinates = Coordinates;
             this.Name = Name;
             this.fieldHeight = fieldHeight;
+            this.Height = 120;
         }
 
 

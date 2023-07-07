@@ -29,45 +29,73 @@
         private void InitializeComponent()
         {
             label2 = new Label();
-            splitContainer1 = new SplitContainer();
-            ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
-            splitContainer1.SuspendLayout();
+            cBoxPowerups = new CheckBox();
+            lblAboutInfo = new Label();
+            btnClose = new Button();
             SuspendLayout();
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(341, 30);
+            label2.Font = new Font("Agency FB", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.Location = new Point(120, 40);
             label2.Name = "label2";
-            label2.Size = new Size(38, 15);
+            label2.Size = new Size(59, 36);
             label2.TabIndex = 1;
-            label2.Text = "label2";
+            label2.Text = "Pong";
             // 
-            // splitContainer1
+            // cBoxPowerups
             // 
-            splitContainer1.Location = new Point(12, 48);
-            splitContainer1.Name = "splitContainer1";
-            splitContainer1.Size = new Size(776, 390);
-            splitContainer1.SplitterDistance = 258;
-            splitContainer1.TabIndex = 3;
+            cBoxPowerups.AutoSize = true;
+            cBoxPowerups.Location = new Point(82, 119);
+            cBoxPowerups.Name = "cBoxPowerups";
+            cBoxPowerups.Size = new Size(136, 24);
+            cBoxPowerups.TabIndex = 0;
+            cBoxPowerups.Text = "Allow Powerups";
+            cBoxPowerups.UseVisualStyleBackColor = true;
+            cBoxPowerups.CheckedChanged += cBoxPowerups_CheckedChanged;
+            // 
+            // lblAboutInfo
+            // 
+            lblAboutInfo.AutoSize = true;
+            lblAboutInfo.Location = new Point(97, 170);
+            lblAboutInfo.Name = "lblAboutInfo";
+            lblAboutInfo.Size = new Size(106, 60);
+            lblAboutInfo.TabIndex = 2;
+            lblAboutInfo.Text = "2023\r\nFilip Naskovski\r\nAlen Jangelov";
+            lblAboutInfo.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // btnClose
+            // 
+            btnClose.Location = new Point(75, 264);
+            btnClose.Name = "btnClose";
+            btnClose.Size = new Size(150, 29);
+            btnClose.TabIndex = 3;
+            btnClose.Text = "Close";
+            btnClose.UseVisualStyleBackColor = true;
+            btnClose.Click += btnClose_Click;
             // 
             // Options
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(282, 318);
+            Controls.Add(btnClose);
+            Controls.Add(lblAboutInfo);
+            Controls.Add(cBoxPowerups);
             Controls.Add(label2);
-            Controls.Add(splitContainer1);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "Options";
             Text = "Options";
-            ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
-            splitContainer1.ResumeLayout(false);
+            Load += Options_Load;
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
         private Label label2;
-        private SplitContainer splitContainer1;
+        private CheckBox cBoxPowerups;
+        private Label lblAboutInfo;
+        private Button btnClose;
     }
 }

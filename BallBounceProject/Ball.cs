@@ -52,18 +52,34 @@ namespace BallBounceProject
         {
             if((this.CenterCoordinates.X-Radius < Player_1.Coordinates.X + Player.Width) 
                 && ((this.CenterCoordinates.Y + Radius > Player_1.Coordinates.Y) 
-                    && (this.CenterCoordinates.Y - Radius < Player_1.Coordinates.Y + Player.Height)))
+                    && (this.CenterCoordinates.Y - Radius < Player_1.Coordinates.Y + Player_1.Height)))
             {
                 return 1;
             }
             if ((this.CenterCoordinates.X+Radius > Player_2.Coordinates.X)
                 && ((this.CenterCoordinates.Y + Radius > Player_2.Coordinates.Y) 
-                    && (this.CenterCoordinates.Y - Radius < Player_2.Coordinates.Y + Player.Height)))
+                    && (this.CenterCoordinates.Y - Radius < Player_2.Coordinates.Y + Player_1.Height)))
             {
                 return 2;
             }
             return 0;
-        } 
+        }
+
+        public int CheckCollisionWithPowerup(Powerup powerup)
+        {
+            if (powerup == null) return 0;
+
+            if ((this.CenterCoordinates.X + Radius > powerup.Coordinates.X)
+                && (this.CenterCoordinates.X - Radius < powerup.Coordinates.X + 100)
+                && (this.CenterCoordinates.Y + Radius > powerup.Coordinates.Y)
+                    && (this.CenterCoordinates.Y - Radius < powerup.Coordinates.Y + 100)
+                    && !powerup.Active)
+            {
+                return SpeedX > 0 ? 1 : 2;
+            }
+           
+            return 0;
+        }
         public int CheckScored()
         {
             if (this.CenterCoordinates.X > 1000) return 1;              

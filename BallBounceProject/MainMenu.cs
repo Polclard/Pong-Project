@@ -12,14 +12,17 @@ namespace BallBounceProject
 {
     public partial class MainMenu : Form
     {
+        public bool AllowPowerups { get; set; }
         public MainMenu()
         {
             InitializeComponent();
+
+            AllowPowerups = false;
         }
 
         private void btnPVP_Click(object sender, EventArgs e)
         {
-            Form1 form1 = new Form1("PVP");
+            Form1 form1 = new Form1("PVP", AllowPowerups);
             form1.ShowDialog();
         }
 
@@ -35,7 +38,7 @@ namespace BallBounceProject
 
         private void button4_Click(object sender, EventArgs e)
         {
-            Options optionForm = new Options();
+            Options optionForm = new Options(this);
             optionForm.ShowDialog();
         }
 
@@ -46,7 +49,7 @@ namespace BallBounceProject
 
         private void btnPvC_Click(object sender, EventArgs e)
         {
-            ChooseDifficulty cd = new ChooseDifficulty();
+            ChooseDifficulty cd = new ChooseDifficulty(AllowPowerups);
             cd.ShowDialog();
 
         }
