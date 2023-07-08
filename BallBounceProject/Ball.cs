@@ -43,7 +43,7 @@ namespace BallBounceProject
 
         public void Draw(Graphics g)
         {
-            Brush b = new SolidBrush(Color.Red);
+            Brush b = new SolidBrush(Color.FromArgb(249, 230, 181));
             g.FillEllipse(b, CenterCoordinates.X - Radius, CenterCoordinates.Y - Radius, Radius * 2, Radius * 2);
             b.Dispose();
         }
@@ -82,7 +82,7 @@ namespace BallBounceProject
         }
         public int CheckScored()
         {
-            if (this.CenterCoordinates.X > 1000) return 1;              
+            if (this.CenterCoordinates.X > 1050) return 1;              
             
             if (this.CenterCoordinates.X < 0) return 2;
             

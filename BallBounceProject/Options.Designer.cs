@@ -47,12 +47,13 @@
             // cBoxPowerups
             // 
             cBoxPowerups.AutoSize = true;
+            cBoxPowerups.BackColor = Color.FromArgb(36, 37, 39);
             cBoxPowerups.Location = new Point(82, 119);
             cBoxPowerups.Name = "cBoxPowerups";
             cBoxPowerups.Size = new Size(136, 24);
             cBoxPowerups.TabIndex = 0;
             cBoxPowerups.Text = "Allow Powerups";
-            cBoxPowerups.UseVisualStyleBackColor = true;
+            cBoxPowerups.UseVisualStyleBackColor = false;
             cBoxPowerups.CheckedChanged += cBoxPowerups_CheckedChanged;
             // 
             // lblAboutInfo
@@ -67,23 +68,29 @@
             // 
             // btnClose
             // 
+            btnClose.BackColor = Color.FromArgb(36, 37, 39);
+            btnClose.FlatAppearance.BorderColor = Color.FromArgb(80, 80, 80);
+            btnClose.FlatAppearance.BorderSize = 2;
+            btnClose.FlatStyle = FlatStyle.Flat;
             btnClose.Location = new Point(75, 264);
             btnClose.Name = "btnClose";
             btnClose.Size = new Size(150, 29);
             btnClose.TabIndex = 3;
             btnClose.Text = "Close";
-            btnClose.UseVisualStyleBackColor = true;
+            btnClose.UseVisualStyleBackColor = false;
             btnClose.Click += btnClose_Click;
             // 
             // Options
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(36, 37, 38);
             ClientSize = new Size(282, 318);
             Controls.Add(btnClose);
             Controls.Add(lblAboutInfo);
             Controls.Add(cBoxPowerups);
             Controls.Add(label2);
+            ForeColor = Color.White;
             Margin = new Padding(3, 4, 3, 4);
             Name = "Options";
             Text = "Options";

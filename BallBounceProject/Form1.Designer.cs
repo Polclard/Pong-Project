@@ -47,6 +47,7 @@
             tutLblPlayer1 = new Label();
             tutLblPlayer2 = new Label();
             tutLblHeading = new Label();
+            tutLblScore11 = new Label();
             SuspendLayout();
             // 
             // timer1
@@ -96,9 +97,12 @@
             // 
             // tutBtnWkey
             // 
-            tutBtnWkey.BackColor = SystemColors.Highlight;
+            tutBtnWkey.BackColor = Color.FromArgb(120, 120, 120);
             tutBtnWkey.Enabled = false;
+            tutBtnWkey.FlatAppearance.BorderSize = 0;
+            tutBtnWkey.FlatStyle = FlatStyle.Flat;
             tutBtnWkey.Font = new Font("Segoe UI", 25F, FontStyle.Regular, GraphicsUnit.Point);
+            tutBtnWkey.ForeColor = SystemColors.ButtonFace;
             tutBtnWkey.Location = new Point(149, 167);
             tutBtnWkey.Name = "tutBtnWkey";
             tutBtnWkey.Size = new Size(74, 81);
@@ -109,9 +113,12 @@
             // 
             // tutBtnSkey
             // 
-            tutBtnSkey.BackColor = SystemColors.Highlight;
+            tutBtnSkey.BackColor = Color.FromArgb(68, 55, 66);
             tutBtnSkey.Enabled = false;
+            tutBtnSkey.FlatAppearance.BorderSize = 0;
+            tutBtnSkey.FlatStyle = FlatStyle.Flat;
             tutBtnSkey.Font = new Font("Segoe UI", 25F, FontStyle.Regular, GraphicsUnit.Point);
+            tutBtnSkey.ForeColor = Color.White;
             tutBtnSkey.Location = new Point(149, 254);
             tutBtnSkey.Name = "tutBtnSkey";
             tutBtnSkey.Size = new Size(74, 81);
@@ -122,7 +129,10 @@
             // 
             // tutBtnAkey
             // 
+            tutBtnAkey.BackColor = SystemColors.ButtonFace;
             tutBtnAkey.Enabled = false;
+            tutBtnAkey.FlatAppearance.BorderSize = 0;
+            tutBtnAkey.FlatStyle = FlatStyle.Flat;
             tutBtnAkey.Font = new Font("Segoe UI", 25F, FontStyle.Regular, GraphicsUnit.Point);
             tutBtnAkey.Location = new Point(69, 254);
             tutBtnAkey.Name = "tutBtnAkey";
@@ -130,11 +140,14 @@
             tutBtnAkey.TabIndex = 8;
             tutBtnAkey.TabStop = false;
             tutBtnAkey.Text = "A";
-            tutBtnAkey.UseVisualStyleBackColor = true;
+            tutBtnAkey.UseVisualStyleBackColor = false;
             // 
             // tutBtnDkey
             // 
+            tutBtnDkey.BackColor = SystemColors.ButtonFace;
             tutBtnDkey.Enabled = false;
+            tutBtnDkey.FlatAppearance.BorderSize = 0;
+            tutBtnDkey.FlatStyle = FlatStyle.Flat;
             tutBtnDkey.Font = new Font("Segoe UI", 25F, FontStyle.Regular, GraphicsUnit.Point);
             tutBtnDkey.Location = new Point(229, 254);
             tutBtnDkey.Name = "tutBtnDkey";
@@ -142,11 +155,14 @@
             tutBtnDkey.TabIndex = 9;
             tutBtnDkey.TabStop = false;
             tutBtnDkey.Text = "D";
-            tutBtnDkey.UseVisualStyleBackColor = true;
+            tutBtnDkey.UseVisualStyleBackColor = false;
             // 
             // tutBtnRightArrow
             // 
+            tutBtnRightArrow.BackColor = SystemColors.ButtonFace;
             tutBtnRightArrow.Enabled = false;
+            tutBtnRightArrow.FlatAppearance.BorderSize = 0;
+            tutBtnRightArrow.FlatStyle = FlatStyle.Flat;
             tutBtnRightArrow.Font = new Font("Calibri", 25F, FontStyle.Regular, GraphicsUnit.Point);
             tutBtnRightArrow.Location = new Point(884, 254);
             tutBtnRightArrow.Name = "tutBtnRightArrow";
@@ -154,11 +170,14 @@
             tutBtnRightArrow.TabIndex = 14;
             tutBtnRightArrow.TabStop = false;
             tutBtnRightArrow.Text = "→";
-            tutBtnRightArrow.UseVisualStyleBackColor = true;
+            tutBtnRightArrow.UseVisualStyleBackColor = false;
             // 
             // tutBtnLeftArrow
             // 
+            tutBtnLeftArrow.BackColor = SystemColors.ButtonFace;
             tutBtnLeftArrow.Enabled = false;
+            tutBtnLeftArrow.FlatAppearance.BorderSize = 0;
+            tutBtnLeftArrow.FlatStyle = FlatStyle.Flat;
             tutBtnLeftArrow.Font = new Font("Calibri", 25F, FontStyle.Regular, GraphicsUnit.Point);
             tutBtnLeftArrow.Location = new Point(724, 254);
             tutBtnLeftArrow.Name = "tutBtnLeftArrow";
@@ -166,13 +185,16 @@
             tutBtnLeftArrow.TabIndex = 13;
             tutBtnLeftArrow.TabStop = false;
             tutBtnLeftArrow.Text = "←";
-            tutBtnLeftArrow.UseVisualStyleBackColor = true;
+            tutBtnLeftArrow.UseVisualStyleBackColor = false;
             // 
             // tutBtnDownArrow
             // 
-            tutBtnDownArrow.BackColor = SystemColors.Highlight;
+            tutBtnDownArrow.BackColor = Color.FromArgb(68, 55, 66);
             tutBtnDownArrow.Enabled = false;
+            tutBtnDownArrow.FlatAppearance.BorderSize = 0;
+            tutBtnDownArrow.FlatStyle = FlatStyle.Flat;
             tutBtnDownArrow.Font = new Font("Calibri", 25F, FontStyle.Regular, GraphicsUnit.Point);
+            tutBtnDownArrow.ForeColor = Color.White;
             tutBtnDownArrow.Location = new Point(804, 254);
             tutBtnDownArrow.Name = "tutBtnDownArrow";
             tutBtnDownArrow.Size = new Size(74, 81);
@@ -183,9 +205,12 @@
             // 
             // tutBtnUpArrow
             // 
-            tutBtnUpArrow.BackColor = SystemColors.Highlight;
+            tutBtnUpArrow.BackColor = Color.FromArgb(68, 55, 66);
             tutBtnUpArrow.Enabled = false;
+            tutBtnUpArrow.FlatAppearance.BorderSize = 0;
+            tutBtnUpArrow.FlatStyle = FlatStyle.Flat;
             tutBtnUpArrow.Font = new Font("Calibri", 25F, FontStyle.Regular, GraphicsUnit.Point);
+            tutBtnUpArrow.ForeColor = Color.White;
             tutBtnUpArrow.Location = new Point(804, 167);
             tutBtnUpArrow.Margin = new Padding(0);
             tutBtnUpArrow.Name = "tutBtnUpArrow";
@@ -199,17 +224,17 @@
             // 
             tutLblP2Instructions.AutoSize = true;
             tutLblP2Instructions.Font = new Font("Agency FB", 25.2F, FontStyle.Regular, GraphicsUnit.Point);
-            tutLblP2Instructions.Location = new Point(679, 361);
+            tutLblP2Instructions.Location = new Point(700, 361);
             tutLblP2Instructions.Name = "tutLblP2Instructions";
-            tutLblP2Instructions.Size = new Size(291, 102);
+            tutLblP2Instructions.Size = new Size(290, 102);
             tutLblP2Instructions.TabIndex = 10;
-            tutLblP2Instructions.Text = "use W to move UP\r\nuse S to move DOWN";
+            tutLblP2Instructions.Text = "use ↑ to move UP\r\nuse ↓ to move DOWN";
             // 
             // tutLblMoreInstructions
             // 
             tutLblMoreInstructions.AutoSize = true;
             tutLblMoreInstructions.Font = new Font("Agency FB", 20F, FontStyle.Regular, GraphicsUnit.Point);
-            tutLblMoreInstructions.Location = new Point(440, 295);
+            tutLblMoreInstructions.Location = new Point(442, 348);
             tutLblMoreInstructions.Name = "tutLblMoreInstructions";
             tutLblMoreInstructions.Size = new Size(170, 84);
             tutLblMoreInstructions.TabIndex = 15;
@@ -240,17 +265,29 @@
             // 
             tutLblHeading.AutoSize = true;
             tutLblHeading.Font = new Font("Agency FB", 25.2F, FontStyle.Regular, GraphicsUnit.Point);
-            tutLblHeading.Location = new Point(442, 120);
+            tutLblHeading.Location = new Point(458, 245);
             tutLblHeading.Name = "tutLblHeading";
             tutLblHeading.Size = new Size(133, 51);
             tutLblHeading.TabIndex = 18;
             tutLblHeading.Text = "Controls";
             // 
+            // tutLblScore11
+            // 
+            tutLblScore11.AutoSize = true;
+            tutLblScore11.Font = new Font("Agency FB", 20F, FontStyle.Regular, GraphicsUnit.Point);
+            tutLblScore11.Location = new Point(441, 167);
+            tutLblScore11.Name = "tutLblScore11";
+            tutLblScore11.Size = new Size(168, 42);
+            tutLblScore11.TabIndex = 19;
+            tutLblScore11.Text = "Score 11 to win";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(126, 188, 137);
             ClientSize = new Size(1032, 633);
+            Controls.Add(tutLblScore11);
             Controls.Add(tutLblHeading);
             Controls.Add(tutLblPlayer2);
             Controls.Add(tutLblPlayer1);
@@ -308,5 +345,6 @@
         private Label tutLblPlayer1;
         private Label tutLblPlayer2;
         private Label tutLblHeading;
+        private Label tutLblScore11;
     }
 }

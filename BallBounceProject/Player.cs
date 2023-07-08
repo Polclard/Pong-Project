@@ -30,7 +30,7 @@ namespace BallBounceProject
 
         public void Draw(Graphics g)
         {
-            Brush brush = new SolidBrush(Color.DarkBlue);
+            Brush brush = new SolidBrush(Color.FromArgb(68, 55, 66));
             g.FillRectangle(brush, Coordinates.X, Coordinates.Y, Width, Height);
             brush.Dispose();
         }

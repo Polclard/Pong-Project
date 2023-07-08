@@ -73,9 +73,9 @@ namespace BallBounceProject.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Pong_Logo1 {
+        internal static System.Drawing.Bitmap Pong_Logo_Green_Transparent {
             get {
-                object obj = ResourceManager.GetObject("Pong-Logo1", resourceCulture);
+                object obj = ResourceManager.GetObject("Pong_Logo_Green_Transparent", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

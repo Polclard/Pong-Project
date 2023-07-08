@@ -137,7 +137,7 @@ namespace BallBounceProject
             //Powerups
             if (AllowPowerups)
             {
-                if (scene.Powerup == null ) // powerup added every 2500 ticks
+                if (scene.Powerup == null && ++ticks >= 2500) // powerup added every 2500 ticks
                 {
                     scene.CreatePowerup();
                     ticks = 700; // 700 ticks for powerup
@@ -301,6 +301,7 @@ namespace BallBounceProject
                 tutLblPlayer2.Visible = false;
                 tutLblPlayer1Instructions.Visible = false;
                 tutLblP2Instructions.Visible = false;
+                tutLblScore11.Visible = false;
             }
             else
             {
@@ -325,6 +326,8 @@ namespace BallBounceProject
 
                 tutLblPlayer1.Visible = true;
                 tutLblPlayer1Instructions.Visible = true;
+
+                tutLblScore11.Visible = true;
 
             }
         }
