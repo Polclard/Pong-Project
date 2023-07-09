@@ -126,7 +126,7 @@
             ForeColor = Color.White;
             Margin = new Padding(3, 5, 3, 5);
             Name = "MainMenu";
-            Text = "MainMenu";
+            Text = "Pong";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }

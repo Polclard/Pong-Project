@@ -97,7 +97,7 @@
             // 
             // tutBtnWkey
             // 
-            tutBtnWkey.BackColor = Color.FromArgb(120, 120, 120);
+            tutBtnWkey.BackColor = Color.FromArgb(110, 110, 110);
             tutBtnWkey.Enabled = false;
             tutBtnWkey.FlatAppearance.BorderSize = 0;
             tutBtnWkey.FlatStyle = FlatStyle.Flat;
@@ -113,7 +113,7 @@
             // 
             // tutBtnSkey
             // 
-            tutBtnSkey.BackColor = Color.FromArgb(68, 55, 66);
+            tutBtnSkey.BackColor = Color.FromArgb(110, 110, 110);
             tutBtnSkey.Enabled = false;
             tutBtnSkey.FlatAppearance.BorderSize = 0;
             tutBtnSkey.FlatStyle = FlatStyle.Flat;
@@ -189,7 +189,7 @@
             // 
             // tutBtnDownArrow
             // 
-            tutBtnDownArrow.BackColor = Color.FromArgb(68, 55, 66);
+            tutBtnDownArrow.BackColor = Color.FromArgb(110, 110, 110);
             tutBtnDownArrow.Enabled = false;
             tutBtnDownArrow.FlatAppearance.BorderSize = 0;
             tutBtnDownArrow.FlatStyle = FlatStyle.Flat;
@@ -205,7 +205,7 @@
             // 
             // tutBtnUpArrow
             // 
-            tutBtnUpArrow.BackColor = Color.FromArgb(68, 55, 66);
+            tutBtnUpArrow.BackColor = Color.FromArgb(110, 110, 110);
             tutBtnUpArrow.Enabled = false;
             tutBtnUpArrow.FlatAppearance.BorderSize = 0;
             tutBtnUpArrow.FlatStyle = FlatStyle.Flat;
