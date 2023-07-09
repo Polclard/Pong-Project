@@ -118,8 +118,11 @@ namespace BallBounceProject
                 //get position of ball relative to the hit player
                 int relativeY = this.CenterCoordinates.Y - PlayerY;
                 
+                //get Player Height in case of using a powerup
+                int PlayerHeight = PlayerCollided==1?Player_1.Height : Player_2.Height;
+
                 //calculate the speed vectors 
-                double Yweight = Math.Abs(relativeY - 60) / 60.0;
+                double Yweight = Math.Abs(relativeY - (PlayerHeight/2)) / (double)(PlayerHeight/2);
                 SpeedY = (int) (TotalSpeed * Yweight * 0.7);
                 SpeedX = TotalSpeed - SpeedY;
 

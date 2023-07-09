@@ -64,12 +64,9 @@ namespace BallBounceProject
         }
         public void Deactivate(Player HitBy, Player Opposition)
         {
-            /*if(Power == "EnlargePaddle" || )
-            {*/
             Active = false;
             HitBy.Height = 120;
             Opposition.Height = 120;
-            //}
         }
 
 
