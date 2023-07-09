@@ -22,7 +22,7 @@ namespace BallBounceProject
 
         private void btnPVP_Click(object sender, EventArgs e)
         {
-            Form1 form1 = new Form1("PVP", AllowPowerups);
+            PlayingField form1 = new PlayingField("PVP", AllowPowerups);
             form1.ShowDialog();
         }
 

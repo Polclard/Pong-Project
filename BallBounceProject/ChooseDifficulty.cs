@@ -21,21 +21,21 @@ namespace BallBounceProject
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Form1 form1 = new Form1("Easy", AllowPowerups);
+            PlayingField form1 = new PlayingField("Easy", AllowPowerups);
             form1.ShowDialog();
             this.Close();
         }
 
         private void btnMedium_Click(object sender, EventArgs e)
         {
-            Form1 form1 = new Form1("Medium", AllowPowerups);
+            PlayingField form1 = new PlayingField("Medium", AllowPowerups);
             form1.ShowDialog();
             this.Close();
         }
 
         private void btnHard_Click(object sender, EventArgs e)
         {
-            Form1 form1 = new Form1("Hard", AllowPowerups);
+            PlayingField form1 = new PlayingField("Hard", AllowPowerups);
             form1.ShowDialog();
             this.Close();
         }

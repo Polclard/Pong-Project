@@ -2,7 +2,7 @@ using Microsoft.VisualBasic.Devices;
 
 namespace BallBounceProject
 {
-    public partial class Form1 : Form
+    public partial class PlayingField : Form
     {
         Scene scene;
         Player Player1;
@@ -18,7 +18,7 @@ namespace BallBounceProject
         public bool AllowPowerups { get; set; }
 
         int ticks = 0;
-        public Form1(string Mode, bool AllowPowerups)
+        public PlayingField(string Mode, bool AllowPowerups)
         {
             InitializeComponent();
             this.DoubleBuffered = true;

@@ -1,6 +1,6 @@
 ﻿namespace BallBounceProject
 {
-    partial class Form1
+    partial class PlayingField
     {
         /// <summary>
         ///  Required designer variable.
@@ -281,7 +281,7 @@
             tutLblScore11.TabIndex = 19;
             tutLblScore11.Text = "Score 11 to win";
             // 
-            // Form1
+            // PlayingField
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -308,7 +308,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(3, 4, 3, 4);
             MdiChildrenMinimizedAnchorBottom = false;
-            Name = "Form1";
+            Name = "PlayingField";
             Text = "Form1";
             Load += Form1_Load;
             ResizeEnd += Form1_ResizeEnd;
